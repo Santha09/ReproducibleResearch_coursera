@@ -350,9 +350,11 @@ meanImpute &lt;- mean(Imputedaysum)
 medianImpute &lt;- median(Imputedaysum)
 </code></pre>
 
-<p>The mean and median for the imputed values are 1.114515 &times; 10<sup>4</sup> and 1.1257 &times; 10<sup>4</sup></p>
+<p>The mean and median for the imputed values are 1.114515 &times; 10<sup>4</sup> and 1.1257 &times; 10<sup>4</sup>
+The mean and median for the original data set are 9354.2295082 and 10395</p>
 
-<p>###7. Let us see the histogram of total number of steps taken each day after imputing missing values</p>
+<p>The difference between imputed and original mean is r mean 
+###7. Let us see the histogram of total number of steps taken each day after imputing missing values</p>
 
 <pre><code class="r">hist(Imputedaysum,breaks = 20, col = &quot;green&quot;, 
      xlab = &quot;Total Steps Daily&quot;, ylab = &quot;Frequency (in Days)&quot;, 

@@ -164,7 +164,9 @@ medianImpute <- median(Imputedaysum)
 ```
 
 The mean and median for the imputed values are 1.114515 &times; 10<sup>4</sup> and 1.1257 &times; 10<sup>4</sup>
+The mean and median for the original data set are 9354.2295082 and 10395
 
+The difference between imputed and original mean is `r mean 
 ###7. Let us see the histogram of total number of steps taken each day after imputing missing values
 
 ```r
