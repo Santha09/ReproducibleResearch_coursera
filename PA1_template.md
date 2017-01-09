@@ -164,15 +164,15 @@ medianImpute <- median(Imputedaysum)
 ```
 
 The mean and median for the imputed values are 1.114515 &times; 10<sup>4</sup> and 1.1257 &times; 10<sup>4</sup>
+
 The mean and median for the original data set are 9354.2295082 and 10395
 
-The difference between imputed and original mean is `r mean 
 ###7. Let us see the histogram of total number of steps taken each day after imputing missing values
 
 ```r
 hist(Imputedaysum,breaks = 20, col = "green", 
      xlab = "Total Steps Daily", ylab = "Frequency (in Days)", 
-     main = "Histogram of the total number of steps taken each day (AFTER IMPUTE)")
+     main = "Histogram of the total number of steps taken each day (AFTER IMPUTE)", cex.main = .7)
 abline(v=meanImpute,col="black",lty=2,lwd=2)
 abline(v=medianImpute,col="red",lty=3,lwd=2)
 legend(x="topright",legend = c("Mean","Median"),lty=c(2,3),lwd=2,col=c("black","red"))
@@ -184,11 +184,13 @@ legend(x="topright",legend = c("Mean","Median"),lty=c(2,3),lwd=2,col=c("black","
 
 ```r
 activityImpute <- activityImpute %>% mutate(weekdayend = 
-                                              ifelse(weekday == "Saturday" | weekday == "Sunday","weekend","weekday"))
+                                              ifelse(weekday == "Saturday" | 
+                                                       weekday == "Sunday","weekend","weekday"))
 activityImputeavgWD <- activityImpute %>% group_by(weekdayend,interval) %>% summarise(avgsteps = mean(impsteps))
 xyplot(avgsteps ~ interval | weekdayend,data = activityImputeavgWD, type = 'l', layout = c(2,1),
        xlab = "Interval", ylab = "Average Number of Steps", 
-       main = "Average number of steps taken per 5-minute interval across weekdays and weekends")
+       main = "Average number of steps taken per 5-minute interval across weekdays and weekends",
+       par.settings=list(par.main.text=list(cex=.8)))
 ```
 
 ![plot of chunk - xyplot](figure/- xyplot-1.png)
